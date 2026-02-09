@@ -6,4 +6,12 @@
     <LangVersion>latest</LangVersion>
     <IsAotCompatible>true</IsAotCompatible>
   </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Pure.Chart.Model</PackageId>
+    <RootNamespace>Pure.Chart.Model</RootNamespace>
+    <AssemblyName>Pure.Chart.Model</AssemblyName>
+    <Authors>Dmitry Kurochkin</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/kudima03/Pure.Chart.Model</PackageProjectUrl>
+  </PropertyGroup>
 </Project>

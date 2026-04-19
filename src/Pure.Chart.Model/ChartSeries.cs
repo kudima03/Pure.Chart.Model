@@ -3,9 +3,9 @@ using Pure.Primitives.Abstractions.String;
 
 namespace Pure.Chart.Model;
 
-public sealed record Series : ISeries
+public sealed record ChartSeries : IChartSeries
 {
-    public Series(IString legend, IString xAxisSource, IString yAxisSource)
+    public ChartSeries(IString legend, IString xAxisSource, IString yAxisSource)
     {
         Legend = legend;
         XAxisSource = xAxisSource;

@@ -4,14 +4,18 @@ using Pure.Primitives.Random.String;
 
 namespace Pure.Chart.Model.Tests;
 
-public sealed record SeriesTests
+public sealed record ChartSeriesTests
 {
     [Fact]
     public void InitializeLegendCorrectly()
     {
         IString legend = new RandomString();
 
-        ISeries series = new Series(legend, new RandomString(), new RandomString());
+        IChartSeries series = new ChartSeries(
+            legend,
+            new RandomString(),
+            new RandomString()
+        );
 
         Assert.Equal(legend.TextValue, series.Legend.TextValue);
     }
@@ -21,7 +25,11 @@ public sealed record SeriesTests
     {
         IString xAxisSource = new RandomString();
 
-        ISeries series = new Series(new RandomString(), xAxisSource, new RandomString());
+        IChartSeries series = new ChartSeries(
+            new RandomString(),
+            xAxisSource,
+            new RandomString()
+        );
 
         Assert.Equal(xAxisSource.TextValue, series.XAxisSource.TextValue);
     }
@@ -31,7 +39,11 @@ public sealed record SeriesTests
     {
         IString yAxisSource = new RandomString();
 
-        ISeries series = new Series(new RandomString(), new RandomString(), yAxisSource);
+        IChartSeries series = new ChartSeries(
+            new RandomString(),
+            new RandomString(),
+            yAxisSource
+        );
 
         Assert.Equal(yAxisSource.TextValue, series.YAxisSource.TextValue);
     }

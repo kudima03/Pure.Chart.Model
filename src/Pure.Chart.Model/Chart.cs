@@ -11,7 +11,7 @@ public sealed record Chart : IChart
         IChartType type,
         IAxis xAxis,
         IAxis yAxis,
-        IEnumerable<ISeries> series
+        IEnumerable<IChartSeries> series
     )
     {
         Title = title;
@@ -32,5 +32,5 @@ public sealed record Chart : IChart
 
     public IAxis YAxis { get; }
 
-    public IEnumerable<ISeries> Series { get; }
+    public IEnumerable<IChartSeries> Series { get; }
 }

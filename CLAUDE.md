@@ -13,7 +13,7 @@ dotnet format --verify-no-changes                # check code style (CI enforces
 dotnet format && csharpier format .              # auto-fix code style
 dotnet test --no-build --verbosity normal        # run xUnit tests
 dotnet stryker --mutation-level Complete --break-at 98   # mutation testing (CI threshold: 98%)
-dotnet pack --configuration Release -p:PackageVersion=<version> --output .
+dotnet pack --configuration Release -p:Version=<version> --output .
 ```
 
 ## Architecture

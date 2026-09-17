@@ -16,6 +16,8 @@ dotnet stryker --mutation-level Complete --break-at 98   # mutation testing (CI 
 dotnet pack --configuration Release -p:Version=<version> --output .
 ```
 
+CI additionally passes `-p:AssemblyVersion` (pinned to the major) and `-p:FileVersion`; see `.github/workflows/publish-nuget.yml`.
+
 ## Architecture
 
 This is a **concrete implementation NuGet library** — four sealed records implementing the chart domain contracts defined in `Pure.Chart.Model.Abstractions`.

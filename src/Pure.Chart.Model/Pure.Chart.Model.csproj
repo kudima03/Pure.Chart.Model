@@ -14,9 +14,13 @@
     <AssemblyName>Pure.Chart.Model</AssemblyName>
     <Authors>Dmitry Kurochkin</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageProjectUrl>https://github.com/kudima03/Pure.Chart.Model</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Pure.Chart.Model.Abstractions" Version="0.1.0-preview.1.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 </Project>

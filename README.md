@@ -17,7 +17,7 @@ Concrete implementations of the chart domain model for the **Pure** ecosystem �
 |------|-----------|-------------|
 | `Chart` | `IChart` | Root chart record — holds title, description, type, two axes, and a series collection |
 | `Axis` | `IAxis` | Single axis with a legend label |
-| `ChartSeries` | `IChartSeries` | A data series with a legend and source column names for each axis |
+| `ChartSeries` | `IChartSeries` | A data series with a legend, source column names for each axis, and a line type |
 | `ChartType` | `IChartType` | Named chart type with an arbitrary name |
 | `LineChartType` | `IChartType` | Predefined `line` chart type |
 | `BarChartType` | `IChartType` | Predefined `bar` chart type |
@@ -47,7 +47,7 @@ The predefined chart types are parameterless records with a fixed lowercase `Nam
 
 ## Dependencies
 
-- [`Pure.Chart.Model.Abstractions`](https://github.com/kudima03/Pure.Chart.Model.Abstractions/tree/0.1.0-preview.1.0.0) — interfaces `IChart`, `IAxis`, `IChartSeries`, and `IChartType` that this package implements
+- [`Pure.Chart.Model.Abstractions`](https://github.com/kudima03/Pure.Chart.Model.Abstractions/tree/0.1.0-preview.2.0.0) — interfaces `IChart`, `IAxis`, `IChartSeries`, and `IChartType` that this package implements
 - [`Pure.Primitives.Abstractions`](https://github.com/kudima03/Pure.Primitives.Abstractions/tree/4.3.0) — base primitive interfaces; `IString` is used for all string-valued properties
 - [`Pure.Primitives`](https://github.com/kudima03/Pure.Primitives/tree/3.7.0) — `String`, used for the fixed names of the predefined chart types
 
@@ -78,6 +78,7 @@ IString yLegend     = new MyString("Revenue");
 IString seriesName  = new MyString("EMEA");
 IString xSource     = new MyString("month_col");
 IString ySource     = new MyString("revenue_col");
+IString lineType    = new MyString("dashed");
 
 var chart = new Chart(
     title,
@@ -85,6 +86,6 @@ var chart = new Chart(
     new BarChartType(),
     new Axis(xLegend),
     new Axis(yLegend),
-    [new ChartSeries(seriesName, xSource, ySource)]
+    [new ChartSeries(seriesName, xSource, ySource, lineType)]
 );
 ```

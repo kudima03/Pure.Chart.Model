@@ -14,6 +14,7 @@ public sealed record ChartSeriesTests
         IChartSeries series = new ChartSeries(
             legend,
             new RandomString(),
+            new RandomString(),
             new RandomString()
         );
 
@@ -28,6 +29,7 @@ public sealed record ChartSeriesTests
         IChartSeries series = new ChartSeries(
             new RandomString(),
             xAxisSource,
+            new RandomString(),
             new RandomString()
         );
 
@@ -42,9 +44,25 @@ public sealed record ChartSeriesTests
         IChartSeries series = new ChartSeries(
             new RandomString(),
             new RandomString(),
-            yAxisSource
+            yAxisSource,
+            new RandomString()
         );
 
         Assert.Equal(yAxisSource.TextValue, series.YAxisSource.TextValue);
+    }
+
+    [Fact]
+    public void InitializeLineTypeCorrectly()
+    {
+        IString lineType = new RandomString();
+
+        IChartSeries series = new ChartSeries(
+            new RandomString(),
+            new RandomString(),
+            new RandomString(),
+            lineType
+        );
+
+        Assert.Equal(lineType.TextValue, series.LineType.TextValue);
     }
 }

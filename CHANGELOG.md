@@ -19,6 +19,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - **`ScatterChartType`** — `scatter`.
   - **`StepChartType`** — `step`.
 - Dependency on `Pure.Primitives` `3.7.0` for the fixed names.
+- **`ChartSeries.LineType`** — `IString` line type of the series
+  (e.g. `solid`, `dashed`, `dotted`), implementing the new
+  `IChartSeries.LineType` member. No validation or default at this layer.
+
+### Changed
+
+- **`ChartSeries`** constructor takes a fourth `IString lineType`
+  parameter after `yAxisSource` (breaking: the three-parameter
+  constructor is removed).
+- `Pure.Chart.Model.Abstractions` dependency bumped to
+  `0.1.0-preview.2.0.0`.
 
 ## [0.1.0-preview.1.0.0] — 2026-04-19
 

@@ -25,7 +25,7 @@ This is a **concrete implementation NuGet library** — sealed records implement
 **Types:**
 - `Chart` — root aggregate; holds `IString` title and description, an `IChartType`, two `IAxis` instances (X and Y), and `IEnumerable<IChartSeries>`
 - `Axis` — single axis with an `IString` legend
-- `ChartSeries` — data series with `IString` legend, `XAxisSource`, and `YAxisSource`
+- `ChartSeries` — data series with `IString` legend, `XAxisSource`, `YAxisSource`, and `LineType`
 - `ChartType` — named chart type with an arbitrary `IString` name
 - `LineChartType`, `BarChartType`, `AreaChartType`, `ScatterChartType`, `StepChartType` — predefined, parameterless chart types with fixed lowercase names (`line`, `bar`, `area`, `scatter`, `step`)
 

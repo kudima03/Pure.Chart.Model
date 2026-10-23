@@ -17,7 +17,14 @@ public sealed record ChartTests
             new ChartType(new RandomString()),
             new Axis(new RandomString()),
             new Axis(new RandomString()),
-            [new ChartSeries(new RandomString(), new RandomString(), new RandomString())]
+            [
+                new ChartSeries(
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString()
+                ),
+            ]
         );
 
         Assert.Equal(title.TextValue, chart.Title.TextValue);
@@ -34,7 +41,14 @@ public sealed record ChartTests
             new ChartType(new RandomString()),
             new Axis(new RandomString()),
             new Axis(new RandomString()),
-            [new ChartSeries(new RandomString(), new RandomString(), new RandomString())]
+            [
+                new ChartSeries(
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString()
+                ),
+            ]
         );
 
         Assert.Equal(description.TextValue, chart.Description.TextValue);
@@ -51,7 +65,14 @@ public sealed record ChartTests
             type,
             new Axis(new RandomString()),
             new Axis(new RandomString()),
-            [new ChartSeries(new RandomString(), new RandomString(), new RandomString())]
+            [
+                new ChartSeries(
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString()
+                ),
+            ]
         );
 
         Assert.Equal(type, chart.Type);
@@ -68,7 +89,14 @@ public sealed record ChartTests
             new ChartType(new RandomString()),
             axis,
             new Axis(new RandomString()),
-            [new ChartSeries(new RandomString(), new RandomString(), new RandomString())]
+            [
+                new ChartSeries(
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString()
+                ),
+            ]
         );
 
         Assert.Equal(axis, chart.XAxis);
@@ -85,7 +113,14 @@ public sealed record ChartTests
             new ChartType(new RandomString()),
             new Axis(new RandomString()),
             axis,
-            [new ChartSeries(new RandomString(), new RandomString(), new RandomString())]
+            [
+                new ChartSeries(
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString(),
+                    new RandomString()
+                ),
+            ]
         );
 
         Assert.Equal(axis, chart.YAxis);
@@ -96,7 +131,12 @@ public sealed record ChartTests
     {
         IEnumerable<IChartSeries> series =
         [
-            new ChartSeries(new RandomString(), new RandomString(), new RandomString()),
+            new ChartSeries(
+                new RandomString(),
+                new RandomString(),
+                new RandomString(),
+                new RandomString()
+            ),
         ];
 
         IChart chart = new Chart(

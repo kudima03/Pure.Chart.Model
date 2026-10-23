@@ -28,6 +28,7 @@ This is a **concrete implementation NuGet library** — sealed records implement
 - `ChartSeries` — data series with `IString` legend, `XAxisSource`, `YAxisSource`, and `LineType`
 - `ChartType` — named chart type with an arbitrary `IString` name
 - `LineChartType`, `BarChartType`, `AreaChartType`, `ScatterChartType`, `StepChartType` — predefined, parameterless chart types with fixed lowercase names (`line`, `bar`, `area`, `scatter`, `step`)
+- `SolidLineType`, `DashedLineType`, `DottedLineType` — predefined, parameterless `IString` line types for `ChartSeries.LineType` with fixed lowercase values (`solid`, `dashed`, `dotted`); like the `Pure.Primitives` constant strings, they throw `NotSupportedException` from `GetHashCode` and `ToString`
 
 **Dependency chain:**
 
@@ -35,7 +36,7 @@ This is a **concrete implementation NuGet library** — sealed records implement
 Pure.Chart.Model
   ├── Pure.Chart.Model.Abstractions   (IChart, IAxis, IChartSeries, IChartType)
   │     └── Pure.Primitives.Abstractions  (IString)
-  └── Pure.Primitives                  (String, for the predefined type names)
+  └── Pure.Primitives                  (String and Char, for the predefined type names and line types)
 ```
 
 All string-valued properties use `IString` from `Pure.Primitives.Abstractions`; there are no raw `string` properties anywhere in this package.

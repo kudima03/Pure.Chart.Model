@@ -6,6 +6,17 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- Predefined line types — parameterless sealed records implementing
+  `IString` with a fixed lowercase `TextValue`, giving consumers a
+  closed set of known values for `ChartSeries.LineType`:
+  - **`SolidLineType`** — `solid`.
+  - **`DashedLineType`** — `dashed`.
+  - **`DottedLineType`** — `dotted`.
+
 ## [0.1.0-preview.2.0.0] — 2026-10-23
 
 ### Added

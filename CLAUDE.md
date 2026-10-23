@@ -20,20 +20,22 @@ CI additionally passes `-p:AssemblyVersion` (pinned to the major) and `-p:FileVe
 
 ## Architecture
 
-This is a **concrete implementation NuGet library** — four sealed records implementing the chart domain contracts defined in `Pure.Chart.Model.Abstractions`.
+This is a **concrete implementation NuGet library** — sealed records implementing the chart domain contracts defined in `Pure.Chart.Model.Abstractions`.
 
 **Types:**
 - `Chart` — root aggregate; holds `IString` title and description, an `IChartType`, two `IAxis` instances (X and Y), and `IEnumerable<IChartSeries>`
 - `Axis` — single axis with an `IString` legend
 - `ChartSeries` — data series with `IString` legend, `XAxisSource`, and `YAxisSource`
-- `ChartType` — named chart type with an `IString` name
+- `ChartType` — named chart type with an arbitrary `IString` name
+- `LineChartType`, `BarChartType`, `AreaChartType`, `ScatterChartType`, `StepChartType` — predefined, parameterless chart types with fixed lowercase names (`line`, `bar`, `area`, `scatter`, `step`)
 
 **Dependency chain:**
 
 ```
 Pure.Chart.Model
-  └── Pure.Chart.Model.Abstractions   (IChart, IAxis, IChartSeries, IChartType)
-        └── Pure.Primitives.Abstractions  (IString)
+  ├── Pure.Chart.Model.Abstractions   (IChart, IAxis, IChartSeries, IChartType)
+  │     └── Pure.Primitives.Abstractions  (IString)
+  └── Pure.Primitives                  (String, for the predefined type names)
 ```
 
 All string-valued properties use `IString` from `Pure.Primitives.Abstractions`; there are no raw `string` properties anywhere in this package.

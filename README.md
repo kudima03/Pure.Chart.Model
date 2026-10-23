@@ -18,9 +18,26 @@ Concrete implementations of the chart domain model for the **Pure** ecosystem �
 | `Chart` | `IChart` | Root chart record — holds title, description, type, two axes, and a series collection |
 | `Axis` | `IAxis` | Single axis with a legend label |
 | `ChartSeries` | `IChartSeries` | A data series with a legend and source column names for each axis |
-| `ChartType` | `IChartType` | Named chart type (e.g. bar, line, pie) |
+| `ChartType` | `IChartType` | Named chart type with an arbitrary name |
+| `LineChartType` | `IChartType` | Predefined `line` chart type |
+| `BarChartType` | `IChartType` | Predefined `bar` chart type |
+| `AreaChartType` | `IChartType` | Predefined `area` chart type |
+| `ScatterChartType` | `IChartType` | Predefined `scatter` chart type |
+| `StepChartType` | `IChartType` | Predefined `step` chart type |
 
 All types reside in the `Pure.Chart.Model` namespace.
+
+### Predefined chart types
+
+The predefined chart types are parameterless records with a fixed lowercase `Name`, so consumers can rely on a known, closed set of names instead of free-form strings:
+
+| Type | `Name` | Shape |
+|------|--------|-------|
+| `LineChartType` | `line` | Line |
+| `BarChartType` | `bar` | Bars |
+| `AreaChartType` | `area` | Line with the area under it filled |
+| `ScatterChartType` | `scatter` | Unconnected points |
+| `StepChartType` | `step` | Line drawn as horizontal and vertical steps |
 
 ## Design Principles
 
@@ -32,6 +49,7 @@ All types reside in the `Pure.Chart.Model` namespace.
 
 - [`Pure.Chart.Model.Abstractions`](https://github.com/kudima03/Pure.Chart.Model.Abstractions/tree/0.1.0-preview.1.0.0) — interfaces `IChart`, `IAxis`, `IChartSeries`, and `IChartType` that this package implements
 - [`Pure.Primitives.Abstractions`](https://github.com/kudima03/Pure.Primitives.Abstractions/tree/4.3.0) — base primitive interfaces; `IString` is used for all string-valued properties
+- [`Pure.Primitives`](https://github.com/kudima03/Pure.Primitives/tree/3.7.0) — `String`, used for the fixed names of the predefined chart types
 
 ## Target Frameworks
 
@@ -55,7 +73,6 @@ using Pure.Primitives.Abstractions.String;
 // Assuming MyString : IString is provided by your primitives implementation
 IString title       = new MyString("Sales 2024");
 IString description = new MyString("Monthly revenue by region");
-IString typeName    = new MyString("bar");
 IString xLegend     = new MyString("Month");
 IString yLegend     = new MyString("Revenue");
 IString seriesName  = new MyString("EMEA");
@@ -65,7 +82,7 @@ IString ySource     = new MyString("revenue_col");
 var chart = new Chart(
     title,
     description,
-    new ChartType(typeName),
+    new BarChartType(),
     new Axis(xLegend),
     new Axis(yLegend),
     [new ChartSeries(seriesName, xSource, ySource)]

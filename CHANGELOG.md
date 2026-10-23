@@ -6,6 +6,22 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- **`ChartSeries.LineType`** — `IString` line type of the series
+  (e.g. `solid`, `dashed`, `dotted`), implementing the new
+  `IChartSeries.LineType` member. No validation or default at this layer.
+
+### Changed
+
+- **`ChartSeries`** constructor takes a fourth `IString lineType`
+  parameter after `yAxisSource` (breaking: the three-parameter
+  constructor is removed).
+- `Pure.Chart.Model.Abstractions` dependency bumped to
+  `0.1.0-preview.2.0.0`.
+
 ## [0.1.0-preview.1.1.0] — 2026-10-23
 
 ### Added
@@ -19,19 +35,6 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
   - **`ScatterChartType`** — `scatter`.
   - **`StepChartType`** — `step`.
 - Dependency on `Pure.Primitives` `3.7.0` for the fixed names.
-<<<<<<< Updated upstream
-- **`ChartSeries.LineType`** — `IString` line type of the series
-  (e.g. `solid`, `dashed`, `dotted`), implementing the new
-  `IChartSeries.LineType` member. No validation or default at this layer.
-
-### Changed
-
-- **`ChartSeries`** constructor takes a fourth `IString lineType`
-  parameter after `yAxisSource` (breaking: the three-parameter
-  constructor is removed).
-- `Pure.Chart.Model.Abstractions` dependency bumped to
-  `0.1.0-preview.2.0.0`.
-=======
 - `README.md` is now packed into the NuGet package.
 
 ### Changed
@@ -39,7 +42,6 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - The assembly version is now derived from the release tag's major
   version (`0.0.0.0` for `0.x` releases) instead of the SDK default
   `1.0.0.0`; the file version is the tag's numeric part.
->>>>>>> Stashed changes
 
 ## [0.1.0-preview.1.0.0] — 2026-04-19
 

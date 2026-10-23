@@ -43,7 +43,7 @@ All string-valued properties use `IString` from `Pure.Primitives.Abstractions`; 
 
 **Multi-targeting:** net7.0, net8.0, net9.0, net10.0. All types must remain AOT-compatible (`IsAotCompatible = true`).
 
-**Package validation:** `EnablePackageValidation = true` with `PackageValidationBaselineVersion = 0.1.0-preview.2.0.0`. Breaking API changes fail the build.
+**Package validation:** `EnablePackageValidation = true` with `PackageValidationBaselineVersion = 0.1.0-preview.2.1.0`. Breaking API changes fail the build.
 
 **Tests:** xUnit project at `./src/Tests/Pure.Chart.Model.Tests`, targeting net10.0. CI enforces ≥98% line coverage and ≥98% mutation score (Stryker, Complete level).
 

@@ -40,7 +40,9 @@ public sealed record DottedLineTypeTests
     [Fact]
     public void ThrowExceptionOnGetHashCode()
     {
-        _ = Assert.Throws<NotSupportedException>(() => new DottedLineType().GetHashCode());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new DottedLineType().GetHashCode()
+        );
     }
 
     [Fact]

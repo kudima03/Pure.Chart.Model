@@ -40,7 +40,9 @@ public sealed record DashedLineTypeTests
     [Fact]
     public void ThrowExceptionOnGetHashCode()
     {
-        _ = Assert.Throws<NotSupportedException>(() => new DashedLineType().GetHashCode());
+        _ = Assert.Throws<NotSupportedException>(() =>
+            new DashedLineType().GetHashCode()
+        );
     }
 
     [Fact]

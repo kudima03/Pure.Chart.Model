@@ -24,6 +24,9 @@ Concrete implementations of the chart domain model for the **Pure** ecosystem �
 | `AreaChartType` | `IChartType` | Predefined `area` chart type |
 | `ScatterChartType` | `IChartType` | Predefined `scatter` chart type |
 | `StepChartType` | `IChartType` | Predefined `step` chart type |
+| `SolidLineType` | `IString` | Predefined `solid` series line type |
+| `DashedLineType` | `IString` | Predefined `dashed` series line type |
+| `DottedLineType` | `IString` | Predefined `dotted` series line type |
 
 All types reside in the `Pure.Chart.Model` namespace.
 
@@ -39,6 +42,16 @@ The predefined chart types are parameterless records with a fixed lowercase `Nam
 | `ScatterChartType` | `scatter` | Unconnected points |
 | `StepChartType` | `step` | Line drawn as horizontal and vertical steps |
 
+### Predefined line types
+
+The predefined line types are parameterless `IString` records with a fixed lowercase `TextValue`, giving consumers a known, closed set of values for `ChartSeries.LineType`:
+
+| Type | `TextValue` | Line |
+|------|-------------|------|
+| `SolidLineType` | `solid` | Continuous |
+| `DashedLineType` | `dashed` | Dashes |
+| `DottedLineType` | `dotted` | Dots |
+
 ## Design Principles
 
 - **Immutable** — all properties are init-only; values are set once in the constructor and never changed.
@@ -49,7 +62,7 @@ The predefined chart types are parameterless records with a fixed lowercase `Nam
 
 - [`Pure.Chart.Model.Abstractions`](https://github.com/kudima03/Pure.Chart.Model.Abstractions/tree/0.1.0-preview.2.0.0) — interfaces `IChart`, `IAxis`, `IChartSeries`, and `IChartType` that this package implements
 - [`Pure.Primitives.Abstractions`](https://github.com/kudima03/Pure.Primitives.Abstractions/tree/4.3.0) — base primitive interfaces; `IString` is used for all string-valued properties
-- [`Pure.Primitives`](https://github.com/kudima03/Pure.Primitives/tree/3.7.0) — `String`, used for the fixed names of the predefined chart types
+- [`Pure.Primitives`](https://github.com/kudima03/Pure.Primitives/tree/3.7.0) — `String` and `Char`, used for the fixed names of the predefined chart types and line types
 
 ## Target Frameworks
 
@@ -78,7 +91,6 @@ IString yLegend     = new MyString("Revenue");
 IString seriesName  = new MyString("EMEA");
 IString xSource     = new MyString("month_col");
 IString ySource     = new MyString("revenue_col");
-IString lineType    = new MyString("dashed");
 
 var chart = new Chart(
     title,
@@ -86,6 +98,6 @@ var chart = new Chart(
     new BarChartType(),
     new Axis(xLegend),
     new Axis(yLegend),
-    [new ChartSeries(seriesName, xSource, ySource, lineType)]
+    [new ChartSeries(seriesName, xSource, ySource, new DashedLineType())]
 );
 ```

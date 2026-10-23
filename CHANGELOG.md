@@ -6,6 +6,20 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [Unreleased]
+
+### Added
+
+- Predefined chart types — parameterless sealed records implementing
+  `IChartType` with a fixed lowercase `Name`, giving consumers a
+  closed set of known chart type names:
+  - **`LineChartType`** — `line`.
+  - **`BarChartType`** — `bar`.
+  - **`AreaChartType`** — `area`.
+  - **`ScatterChartType`** — `scatter`.
+  - **`StepChartType`** — `step`.
+- Dependency on `Pure.Primitives` `3.7.0` for the fixed names.
+
 ## [0.1.0-preview.1.0.0] — 2026-04-19
 
 ### Changed

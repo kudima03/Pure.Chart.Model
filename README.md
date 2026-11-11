@@ -70,6 +70,7 @@ The predefined line types are parameterless `IString` records with a fixed lower
 - .NET 8
 - .NET 9
 - .NET 10
+- .NET 11
 
 ## Installation
 
